@@ -21,10 +21,8 @@ public class ProductProvidersImpl implements ProviderSaveProduct {
     @ReactiveTransactional
     public Uni<Void> process(Product product) {
         return repository.saveProduct(ProductDataConverter.toData(product))
+                .onItem().failWith(() -> new ProductSaveException())
                 .onItem()
-                .ifNull().failWith(new ProductSaveException())
-                .onItem()
-                .ifNotNull()
                 .transformToUni(result -> Uni.createFrom().voidItem());
     }
 }
