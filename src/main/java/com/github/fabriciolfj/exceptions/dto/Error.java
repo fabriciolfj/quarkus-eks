@@ -1,5 +1,4 @@
-package com.github.fabriciolfj.entrypoint.dto.response;
-
+package com.github.fabriciolfj.exceptions.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,10 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class ProductResponse {
+public class Error {
 
-    private String code;
+    private String message;
 }

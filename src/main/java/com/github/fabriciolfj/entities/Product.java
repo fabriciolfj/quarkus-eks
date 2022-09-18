@@ -17,4 +17,8 @@ public class Product {
     private String describe;
     private BigDecimal price;
     private Category category;
+
+    public String getDescribeCategory() {
+        return category.getDescribe();
+    }
 }
